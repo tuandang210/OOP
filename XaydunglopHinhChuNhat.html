@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>dsa</title>
+</head>
+<body>
+    <canvas id="myCanvas" width="1368px" height="768px" style="border:1px solid #d3d3d3;"></canvas>
+</body>
+</html>
+    <script>
+        let Rectangel = function (x, y, height, width) {
+            this.height = height;
+            this.width = width;
+            this.x = x;
+            this.y = y;
+
+            this.getHeight = function () {
+                return height;
+            }
+            this.getWidth = function () {
+                return width;
+            }
+            this.getPerimeter = function () {
+                return 2*(height+width);
+            }
+            this.getAcreage = function () {
+                return height*width;
+            }
+        }
+
+        let ctx = document.getElementById("myCanvas").getContext("2d");
+        let rectangel = new Rectangel (100, 100, 400,250);
+        let height= rectangel.getHeight();
+        let width= rectangel.getWidth();
+        let perimeter = rectangel.getPerimeter();
+        let acreage = rectangel.getAcreage();
+        alert(height +" Chiều dài: "+width+" Chiều rộng: "+perimeter+" Diện tích: "+acreage+" Chu vi: ");
+
+        function getRandomHex() {
+            return Math.floor(Math.random() * 255);
+        }
+        function getRandomColor(){
+            var red = getRandomHex();
+            var green = getRandomHex();
+            var blue = getRandomHex();
+            return "rgb(" + red + "," + blue + "," + green +")";
+        }
+        let color = getRandomColor();
+
+
+        ctx.beginPath();
+        ctx.rect(100, 100, height, width);
+        ctx.stroke();
+        ctx.fillStyle = color;
+        ctx.fill();
+
+
+    </script>
