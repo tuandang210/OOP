@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>dasd</title>
+</head>
+<body>
+
+
+</body>
+</html>
+    <script>
+       let myDate = function (day, month, year) {
+           this.day = day;
+           this.month = month;
+           this.year = year;
+
+           this.getDay = function () {
+               return this.day;
+           }
+           this.getMonth = function () {
+               return this.month;
+           }
+           this.getYear = function () {
+               return this.year;
+           }
+
+           this.setDay = function (day) {
+               this.day = day;
+               return this.day;
+           }
+           this.setMonth = function (month) {
+               this.month = month;
+               return this.month;
+           }
+           this.setYear = function (year) {
+               this.year = year;
+               return this.year;
+           }
+
+           myDate.prototype.setDate = function(day,month,year){
+               this.day = day;
+               this.month = month;
+               this.year = year;
+           }
+           myDate.prototype.toString = function(){
+               alert( day + "/" + month + "/" + year)
+           }
+
+       }
+
+       let date = new myDate(2312,32131,321312);
+       let day=date.setDay(23);
+       let month = date.setMonth(45);
+       let year= date.setYear(2547);
+       alert( day + "/" + month + "/" + year);
+    
+    </script>

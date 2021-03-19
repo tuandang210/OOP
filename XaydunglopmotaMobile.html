@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>dsa</title>
+</head>
+<body>
+
+</body>
+</html>
+    <script>
+        let Mobile = function (battery) {
+            this.battery = battery;
+            this.memory = [];
+            this.getBattery = function () {
+                if ((battery <= 100) && (battery > 0)) {
+                    return battery;
+                }
+            }
+            this.getMessage = function () {
+                message = prompt("Soạn tin nhắn")
+                this.memory.push(message);
+                battery--;
+                return message;
+            }
+            this.getInbox = function () {
+                alert("Bạn có một tin nhắn");
+                this.memory.push(message);
+                battery--;
+            }
+            this.getOutbox = function () {
+                this.memory.push(message);
+                battery--;
+            }
+            this.turnOn = function () {
+                alert("Dienthoaidangbat");
+                battery--;
+                return true;
+            }
+            this.turnOf = function () {
+                alert("Dienthoaidangtat");
+                battery--;
+                return false;
+            }
+            this.getCharger = function () {
+                alert("Điện thoại đang sạc")
+                battery++;
+            }
+            this.getSentmessage = function () {
+                alert(this.memory[0]);
+                battery--;
+            }
+            this.getInboxmessage = function () {
+                alert(this.memory[0]);
+                battery--;
+            }
+        }
+        let nokia = new Mobile(100);
+        nokia.turnOn()
+        let iphone = new Mobile(100);
+        if ((nokia.getMessage())&&(iphone.turnOn())) {
+            iphone.getInbox();
+            iphone.getInboxmessage();
+        }
+    </script>
