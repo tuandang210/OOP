@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>dbsald</title>
+</head>
+<body>
+
+</body>
+</html>
+    <script>
+        let ElectricLamp = function () {
+            this.status = false;
+
+            this.turnOn = function () {
+                this.status = true;
+            };
+            this.turnOff = function () {
+                this.status = false;
+            }
+        }
+        let SwitchButton = function () {
+            this.connectToLamp = function (electriclamp) {
+                this.electriclamp = electriclamp;
+            }
+            this.switchOff = function () {
+                this.electriclamp.turnOff();
+                alert("Lamp off");
+            }
+            this.switchOn = function () {
+                this.electriclamp.turnOn();
+                alert("lamp on");
+            }
+        }
+
+        let electriclamp = new ElectricLamp();
+        let switchButton = new SwitchButton();
+        switchButton.connectToLamp(electriclamp);
+        let count=0;
+        for (let i=0;i<10;i++) {
+            switchButton.switchOn();
+            switchButton.switchOff();
+            count++
+            alert(count);
+        }
+    </script>
