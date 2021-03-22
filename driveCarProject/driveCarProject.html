@@ -5,8 +5,7 @@
     <title>Title</title>
 </head>
 <body>
-<canvas id="myCanvas" width="5000px" height="2500px" style="border:1px solid #d3d3d3;">
-
+<canvas id="myCanvas" width="1000px" height="500px" style="border:1px solid #d3d3d3;">
 </canvas>
 </body>
 </html>
@@ -15,7 +14,7 @@
         let image   = new Image();
         image.src = "clipart191696.png";
         image.onload = function () {
-            ctx.drawImage(image, 800, 300);
+            ctx.drawImage(image, 480, 350);
             ctx.beginPath();
             ctx.stroke();
         }

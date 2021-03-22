@@ -29,10 +29,18 @@
             var radius = Math.floor(Math.random()*200);
             var color = getRandomColor();
             let circle =new Circle(500,500,radius);
+            circle.x =Math.floor(Math.random() * window.innerWidth);
+            circle.y =Math.floor(Math.random() * window.innerHeight);
             ctx.beginPath();
             ctx.arc(circle.x, circle.y, circle.radius, 0, 2*Math.PI);
             ctx.fillStyle = color;
             ctx.fill();
         }
-        creatCircle()
+        function multiCircle() {
+            for(let i =0;i<30;i++) {
+                creatCircle()
+            }
+        }
+        multiCircle()
+        setInterval(multiCircle, 300)
     </script>
