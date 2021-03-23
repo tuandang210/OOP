@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>cdf</title>
+</head>
+<body>
+
+</body>
+</html>
+    <script>
+        class Mouse {
+            constructor(name,weight,speed) {
+                this._name=name;
+                this._weight=weight;
+                this._speed=speed;
+                this.status= true
+            }
+            get speed() {
+                return this._speed;
+            }
+            isLive = function(){
+               if(this.status){
+                   return true;
+               }else {
+                   return false;
+               }
+            }
+            sound = function () {
+                alert("chít chít");
+            }
+        }
+
+        class Cat {
+            constructor(name,weight,maxspeed) {
+                this._name=name;
+                this._weight=weight;
+                this._maxspeed=maxspeed;
+            }
+            get maxspeed(){
+                return this._maxspeed;
+            }
+            sound = function (){
+                alert("meo meo");
+            }
+            catchMouse = function (mouse){
+                if(this._maxspeed > mouse._speed) {
+                    alert("Mèo đã bắt được chuột");
+                } else {
+                    alert("Chuột chạy mất rồi");
+                }
+            }
+            eatMouse = function (mouse){
+                if (mouse.isLive()){
+                    if(this._maxspeed > mouse._speed) {
+                    alert("Mèo đang ăn thịt chuột");
+                    this._weight++;
+                    alert("Mèo tăng cân "+this._weight)
+                    }
+                } else {
+                    alert("Chuột chết mất rồi")
+                }
+            }
+        }
+
+        let mouse= new Mouse("jerry",10,20);
+        let cat=new Cat("Tom",20,30);
+
+        cat.catchMouse(mouse)
+        cat.eatMouse(mouse)
+
+    </script>

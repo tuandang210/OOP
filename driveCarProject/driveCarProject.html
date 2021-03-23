@@ -4,19 +4,49 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
-<body>
+<body onload="displayImage()">
 <canvas id="myCanvas" width="1000px" height="500px" style="border:1px solid #d3d3d3;">
 </canvas>
 </body>
 </html>
     <script>
-        let ctx = document.getElementById("myCanvas").getContext("2d");
-        let image   = new Image();
-        image.src = "clipart191696.png";
-        image.onload = function () {
-            ctx.drawImage(image, 480, 350);
-            ctx.beginPath();
-            ctx.stroke();
+        let myImage = new Image();
+        let back = new Image();
+        let ctx;
+        function displayImage() {
+            canvas = document.getElementById("myCanvas");
+            if (canvas.getContext) {
+                ctx = canvas.getContext("2d");
+                window.addEventListener('keydown', moveobj, true);
+
+                myImage.src="clipart191696.png";
+                myImage.onload= function (){
+                    ctx.drawImage(myImage,480,360);
+                }
+                back = ctx.getImageData(25, 50, 200, 150);
+            }
         }
 
-</script>
+        let old = new Image();
+        let next = 35;
+        function moveobj(evt) {
+            switch (evt.keyCode) {
+                case 37:
+                    if (next < 20) {
+                        return;
+                    }
+                    next = next - 5;
+                    break;
+                case 39:
+                    if (next > 650) {
+                        return;
+                    }
+                    next = next + 5;
+                    break;
+            }
+            ctx.fillStyle = "#ffffff";
+            ctx.rect(0, 5, 650, 300);
+            ctx.fill();
+            ctx.putImageData(back, next, 50);
+        }
+    </script>
