@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>dsf</title>
+</head>
+<body>
+
+</body>
+</html>
+    <script>
+        let Apple = function (weight) {
+            this.weight = weight;
+
+            this.isEmpty = function () {
+                if (this.weight>0) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+            this.deCrease = function () {
+                if (this.weight>0) {
+                    this.weight--;
+                }
+            }
+            this.getWeight = function () {
+                return this.weight;
+            }
+        }
+
+        let Human = function (name,gender,weight) {
+            this.name= name;
+            this.gender= gender;
+            this.weight = weight;
+
+            this.isMale = function () {
+                this.status=true;
+            }
+            this.checkApple = function (apple) {
+                return apple.isEmpty();
+            }
+            this.eatApple = function (Apple) {
+                apple.weight--
+            }
+        }
+
+        let apple = new Apple(10);
+        let human= new Human("Mp","Male","70kg");
+        human.eatApple(apple);
+        document.write(apple.weight);
+        let a = human.checkApple(apple)
+        alert(a)
+    </script>
