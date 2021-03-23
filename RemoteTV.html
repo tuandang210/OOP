@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>fdsaf</title>
+</head>
+<body>
+
+</body>
+</html>
+    <script>
+        class Remote {
+            constructor(code) {
+                this._code=code;
+            }
+            changeChannel = function (tv){
+                if(this._code!==tv._channel){
+                    tv._channel = this._code;
+                    alert("TV chuyển đến kênh "+this._code)
+                }
+            }
+            changeVolume = function (tv){
+                tv._volume++;
+                alert("Đã tăng volume lên "+tv._volume);
+            }
+        }
+
+        class TV {
+            constructor(channel,volume) {
+                this.status = true;
+                this._channel=channel;
+                this._volume=volume;
+            }
+            checkChannel = function (){
+                alert("Đang ở kênh "+this._channel);
+            }
+            turnOn = function (remote){
+                if (this.status==true) {
+                    alert("TV đang bật");
+                }
+            }
+            turnOff = function (remote){
+                if (this.status==true) {
+                    alert("TV đã tắt");
+                }
+            }
+        }
+
+
+        let tv= new TV(1,2);
+        tv.turnOn();
+        tv.checkChannel();
+        let code = parseInt(prompt("Nhập kênh"));
+        let remote=new Remote(code);
+        remote.changeChannel(tv)
+        tv.checkChannel();
+        remote.changeVolume(tv);
+        tv.turnOff();
+
+    </script>
